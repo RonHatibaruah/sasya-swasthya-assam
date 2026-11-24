@@ -236,10 +236,13 @@ PROPOSAL FIELD 8: TEAM, MANPOWER & EXPERTISE
 ================================================================================
 
 Key Leadership & Technical Roles
-1. Lead Systems Architect & Project Director (Ron Hatibaruah):
+1. Lead Applicant & Project Director (Rajib Dutta, Luitporiya Labs):
+   - Expertise: Program director, enterprise delivery, stakeholder liaison with Department of Agriculture and ASSAC, institutional coordination with AAU Jorhat, financial management, and operational deployment oversight.
+   - Allocation: 100% across all phases.
+2. Lead Solutions Architect & Engineering Director (Ron Hatibaruah):
    - Expertise: Distributed systems architecture, Cloudflare edge computing, full-stack geospatial platforms, and state government technology execution. Responsible for technical delivery, cloud architecture, and end-to-end integration.
    - Allocation: 100% across all phases.
-2. Lead Remote Sensing & GIS Scientist (1 FTE):
+3. Lead Remote Sensing & GIS Scientist (1 FTE):
    - Expertise: Ph.D./M.Tech in Geoinformatics/Remote Sensing. Expertise in Sentinel-1 SAR speckle filtering, Sentinel-2 multi-spectral vegetation index extraction, radiometric calibration, and Google Earth Engine / GDAL spatial pipelines.
    - Allocation: 100% (Phases 1–4), 50% (Phases 5–6).
 3. Agronomist & Plant Pathology Specialist (1 FTE):

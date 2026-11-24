@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sprout, Map, ClipboardCheck, Radio, Activity, BookOpen, Sliders, AlertTriangle, Plane } from 'lucide-react';
+import { Sprout, Map, ClipboardCheck, Radio, Activity, BookOpen, Sliders, AlertTriangle, Plane, ShieldAlert } from 'lucide-react';
 
 export type ActiveTab = 'dashboard' | 'gis-map' | 'field-verification' | 'citizen-portal' | 'drone-tech' | 'admin';
 
@@ -11,6 +11,7 @@ interface NavbarProps {
   totalRecords: number;
   criticalCount: number;
   onOpenTutorial: () => void;
+  onOpenDisclaimer?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -20,22 +21,27 @@ export const Navbar: React.FC<NavbarProps> = ({
   setSelectedDistrict,
   totalRecords,
   criticalCount,
-  onOpenTutorial
+  onOpenTutorial,
+  onOpenDisclaimer
 }) => {
   return (
     <header className="bg-white text-slate-900 border-b border-slate-200 sticky top-0 z-50 shadow-xs">
-      {/* Top Government Official Banner */}
+      {/* Top Government Official & Lead Applicant Banner */}
       <div className="bg-slate-900 px-4 py-1.5 text-xs text-slate-300 flex flex-wrap justify-between items-center border-b border-slate-800">
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 flex-wrap">
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span className="font-semibold text-slate-100">Government of Assam</span>
           <span className="text-slate-500">•</span>
-          <span>Dept. of Agriculture & ASSAC (Science & Tech)</span>
+          <span>Dept. of Agriculture & ASSAC</span>
           <span className="text-slate-500">•</span>
-          <span className="text-amber-400 font-semibold">NESFIC-D-11 Challenge Solution</span>
+          <span className="text-amber-400 font-semibold">NESFIC-D-11 Track</span>
+          <span className="text-slate-500 hidden md:inline">•</span>
+          <span className="text-slate-300 hidden md:inline">
+            Lead Applicant: <strong className="text-white">Rajib Dutta</strong> (Luitporiya Labs)
+          </span>
         </div>
-        <div className="flex items-center space-x-4">
-          <span className="text-slate-400 hidden sm:inline">Sentinel-2 & Drone Space-to-Ground Telemetry</span>
+        <div className="flex items-center space-x-3 mt-1 sm:mt-0">
+          <span className="text-slate-400 hidden lg:inline">Sentinel-2 & Drone Space-to-Ground Telemetry</span>
           <span className="bg-emerald-950 text-emerald-300 border border-emerald-800 px-2 py-0.5 rounded text-[11px] font-mono">
             {totalRecords} Plots Monitored
           </span>
@@ -59,9 +65,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <h1 className="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
+                <a
+                  href="#dashboard"
+                  onClick={(e) => { e.preventDefault(); setActiveTab('dashboard'); }}
+                  className="text-xl font-extrabold tracking-tight text-slate-900 hover:text-emerald-700 transition-colors flex items-center gap-2"
+                  title="SasyaSwasthya Home - Assam Crop Health Monitoring"
+                  data-geo="Guwahati, Assam, India"
+                >
                   SasyaSwasthya <span className="text-xs bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 rounded-full font-semibold">শস্য স্বাস্থ্য</span>
-                </h1>
+                </a>
               </div>
               <p className="text-xs text-slate-600 font-medium">
                 Crop Health Monitoring, Pest Forecasting & Location-Specific Agro-Advisory Engine
@@ -70,14 +82,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Quick Filter & Actions */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2.5 flex-wrap gap-y-2">
             <div className="flex items-center space-x-2 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 text-xs">
-              <span className="text-slate-500 font-medium">District:</span>
+              <label htmlFor="district-select" className="text-slate-500 font-medium">District:</label>
               <select
-                aria-label="Filter records by Assam District"
+                id="district-select"
+                aria-label="Filter crop records by Assam District"
                 value={selectedDistrict}
                 onChange={(e) => setSelectedDistrict(e.target.value)}
                 className="bg-transparent text-emerald-800 font-bold focus:outline-none cursor-pointer"
+                data-geo="Assam, India"
               >
                 <option value="ALL">All Assam Agro-Zones</option>
                 <option value="Kamrup Rural">Kamrup Rural (Azara/Rani)</option>
@@ -94,18 +108,37 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenTutorial}
               className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-semibold transition-all shadow-xs"
-              title="Open System Architecture Guide"
+              title="Open NESFIC-D-11 System Architecture Guide"
+              aria-label="Open System Architecture Guide"
             >
               <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
               <span>D-11 Guide</span>
             </button>
+
+            {onOpenDisclaimer && (
+              <button
+                onClick={onOpenDisclaimer}
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold transition-all shadow-xs"
+                title="View Agricultural & Legal Disclaimer"
+                aria-label="View Agricultural and Legal Disclaimer"
+              >
+                <ShieldAlert className="w-3.5 h-3.5 text-amber-700" />
+                <span>Disclaimer</span>
+              </button>
+            )}
           </div>
         </div>
 
-        {/* Tab Switcher */}
-        <div className="flex space-x-1 mt-3.5 overflow-x-auto pb-1 border-b border-slate-200 scrollbar-none">
-          <button
-            onClick={() => setActiveTab('dashboard')}
+        {/* Tab Switcher - SEO & GEO Friendly Semantic Anchors */}
+        <nav
+          aria-label="SasyaSwasthya Platform Modules"
+          className="flex space-x-1 mt-3.5 overflow-x-auto pb-1 border-b border-slate-200 scrollbar-none"
+        >
+          <a
+            href="#dashboard"
+            onClick={(e) => { e.preventDefault(); setActiveTab('dashboard'); }}
+            data-geo="Assam, India"
+            title="Executive Agro-Climatic Dashboard for Assam"
             className={`flex items-center space-x-2 px-3.5 py-2 rounded-t-lg text-xs font-bold transition-colors whitespace-nowrap ${
               activeTab === 'dashboard'
                 ? 'bg-slate-100 text-emerald-800 border-b-2 border-emerald-600 shadow-xs'
@@ -114,10 +147,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Activity className="w-4 h-4 text-emerald-600" />
             <span>Executive Agro-Dashboard</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => setActiveTab('gis-map')}
+          <a
+            href="#gis-viewer"
+            onClick={(e) => { e.preventDefault(); setActiveTab('gis-map'); }}
+            data-geo="Assam, India"
+            title="Satellite Sentinel-2 & Drone Multispectral WebGIS Viewer"
             className={`flex items-center space-x-2 px-3.5 py-2 rounded-t-lg text-xs font-bold transition-colors whitespace-nowrap ${
               activeTab === 'gis-map'
                 ? 'bg-slate-100 text-emerald-800 border-b-2 border-emerald-600 shadow-xs'
@@ -126,10 +162,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Map className="w-4 h-4 text-emerald-600" />
             <span>Satellite & Drone WebGIS</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => setActiveTab('field-verification')}
+          <a
+            href="#field-scouting"
+            onClick={(e) => { e.preventDefault(); setActiveTab('field-verification'); }}
+            data-geo="Assam, India"
+            title="Agricultural Extension Field Scouting & Mobile Ground-Truthing PWA"
             className={`flex items-center space-x-2 px-3.5 py-2 rounded-t-lg text-xs font-bold transition-colors whitespace-nowrap ${
               activeTab === 'field-verification'
                 ? 'bg-slate-100 text-emerald-800 border-b-2 border-emerald-600 shadow-xs'
@@ -138,10 +177,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <ClipboardCheck className="w-4 h-4 text-emerald-600" />
             <span>Field Scouting & PWA</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => setActiveTab('citizen-portal')}
+          <a
+            href="#farmer-advisory"
+            onClick={(e) => { e.preventDefault(); setActiveTab('citizen-portal'); }}
+            data-geo="Assam, India"
+            title="Farmer Hyper-Local Advisory and Outbreak Warning Portal (Sasya Seva)"
             className={`flex items-center space-x-2 px-3.5 py-2 rounded-t-lg text-xs font-bold transition-colors whitespace-nowrap ${
               activeTab === 'citizen-portal'
                 ? 'bg-slate-100 text-emerald-800 border-b-2 border-emerald-600 shadow-xs'
@@ -150,10 +192,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Radio className="w-4 h-4 text-emerald-600" />
             <span>Farmer Advisory (Sasya Seva)</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => setActiveTab('drone-tech')}
+          <a
+            href="#drone-technology"
+            onClick={(e) => { e.preventDefault(); setActiveTab('drone-tech'); }}
+            data-geo="Assam, India"
+            title="Drone Fleet Operations & Sub-Decimeter Multispectral Telemetry"
             className={`flex items-center space-x-2 px-3.5 py-2 rounded-t-lg text-xs font-bold transition-colors whitespace-nowrap ${
               activeTab === 'drone-tech'
                 ? 'bg-slate-100 text-emerald-800 border-b-2 border-emerald-600 shadow-xs'
@@ -162,10 +207,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Plane className="w-4 h-4 text-emerald-600" />
             <span>Drone Technology</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => setActiveTab('admin')}
+          <a
+            href="#admin-console"
+            onClick={(e) => { e.preventDefault(); setActiveTab('admin'); }}
+            data-geo="Assam, India"
+            title="Agro-Command Center and Automated Meteorological Rule Engine Console"
             className={`flex items-center space-x-2 px-3.5 py-2 rounded-t-lg text-xs font-bold transition-colors whitespace-nowrap ${
               activeTab === 'admin'
                 ? 'bg-slate-100 text-amber-800 border-b-2 border-amber-600 shadow-xs'
@@ -174,8 +222,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Sliders className="w-4 h-4 text-amber-600" />
             <span>Command & Admin Console</span>
-          </button>
-        </div>
+          </a>
+        </nav>
       </div>
     </header>
   );

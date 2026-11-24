@@ -4,7 +4,7 @@
   <!-- Main Application Landing Page -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <geo:geo>
@@ -12,10 +12,10 @@
     </geo:geo>
   </url>
 
-  <!-- Executive Agro-Climatic Intelligence Dashboard -->
+  <!-- Executive Agro-Climatic Dashboard -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/#dashboard</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -23,7 +23,7 @@
   <!-- Satellite & Drone Multispectral WebGIS Viewer -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/#gis-viewer</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -31,7 +31,7 @@
   <!-- Agriculture Extension Field Scouting & Mobile PWA Portal -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/#field-scouting</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -39,7 +39,7 @@
   <!-- Farmer Hyper-Local Advisory & Outbreak Warning Portal (Sasya Seva) -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/#farmer-advisory</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -47,7 +47,7 @@
   <!-- Drone Technology & Multispectral Fleet Operations -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/#drone-technology</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -55,15 +55,23 @@
   <!-- Agro-Command Center & Administrative Console -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/#admin-console</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Agricultural & Legal Disclaimer -->
+  <url>
+    <loc>https://sasya-swasthya.pages.dev/#disclaimer</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Interactive Walkthrough & Training Guide -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/#tutorial</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

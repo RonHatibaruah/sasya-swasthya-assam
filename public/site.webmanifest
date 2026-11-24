@@ -1,0 +1,34 @@
+{
+  "name": "SasyaSwasthya (শস্য স্বাস্থ্য) - Assam Precision Agriculture",
+  "short_name": "SasyaSwasthya",
+  "description": "Assam Crop Health Monitoring, Pest & Disease Forecasting and Location-Specific Advisory System by Luitporiya Labs (Lead Applicant: Rajib Dutta)",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/#dashboard",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#064e3b",
+  "lang": "en-IN",
+  "orientation": "any"
+}

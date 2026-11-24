@@ -2,7 +2,8 @@
 **Problem Statement:** NESFIC-D-11 (Government Track) — *Crop Health Monitoring, Pest & Disease Forecasting and Location-Specific Advisory*  
 **Challenge Owners:** Department of Agriculture, Government of Assam & Department of Science & Technology (Assam State Space Application Centre - ASSAC)  
 **Academic / Knowledge Partner:** Assam Agricultural University (AAU), Jorhat  
-**Applicant / Innovator:** Ron Hatibaruah  
+**Lead Applicant & Organization:** Rajib Dutta | Luitporiya Labs  
+**Lead Solutions Architect:** Ron Hatibaruah  
 **Application Platform:** Assam Startup Portal (NESFIC 2026)  
 **Proposed Solution Name:** SasyaSwasthya (শস্য স্বাস্থ্য) — Space-to-Ground Agro-Climatic Intelligence, Pest Early-Warning & Hyper-Local Advisory System  
 **Product / Website URL:** https://sasya-swasthya.pages.dev  
@@ -211,10 +212,13 @@ The system strictly adheres to the Digital Personal Data Protection Act (DPDPA) 
 *(Word Count: 408 words / Max: 500 words)*
 
 ### Key Leadership & Technical Roles
-1. **Lead Systems Architect & Project Director (Ron Hatibaruah):**
+1. **Lead Applicant & Project Director (Rajib Dutta, Luitporiya Labs):**
+   - *Expertise:* Program director, enterprise delivery, stakeholder liaison with Department of Agriculture and ASSAC, institutional coordination with AAU Jorhat, financial management, and operational deployment oversight.
+   - *Allocation:* 100% across all phases.
+2. **Lead Solutions Architect & Engineering Director (Ron Hatibaruah):**
    - *Expertise:* Distributed systems architecture, Cloudflare edge computing, full-stack geospatial platforms, and state government technology execution. Responsible for technical delivery, cloud architecture, and end-to-end integration.
    - *Allocation:* 100% across all phases.
-2. **Lead Remote Sensing & GIS Scientist (1 FTE):**
+3. **Lead Remote Sensing & GIS Scientist (1 FTE):**
    - *Expertise:* Ph.D./M.Tech in Geoinformatics/Remote Sensing. Expertise in Sentinel-1 SAR speckle filtering, Sentinel-2 multi-spectral vegetation index extraction, radiometric calibration, and Google Earth Engine / GDAL spatial pipelines.
    - *Allocation:* 100% (Phases 1–4), 50% (Phases 5–6).
 3. **Agronomist & Plant Pathology Specialist (1 FTE):**

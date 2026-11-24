@@ -2,11 +2,12 @@
 **NESFIC-D-11: Crop Health Monitoring, Pest & Disease Forecasting and Location-Specific Advisory**  
 **Challenge Owners:** Department of Agriculture, Government of Assam & Assam State Space Application Centre (ASSAC)  
 **Academic / Knowledge Partner:** Assam Agricultural University (AAU), Jorhat  
-**Applicant & Lead Architect:** Ron Hatibaruah  
+**Lead Applicant & Organization:** Rajib Dutta | Luitporiya Labs  
+**Lead Solutions Architect:** Ron Hatibaruah  
 **Live Production Platform:** https://sasya-swasthya.pages.dev  
 **Interactive Walkthrough Simulator:** https://sasya-swasthya.pages.dev/#tutorial  
 **Open-Source Repository:** https://github.com/RonHatibaruah/sasya-swasthya-assam  
-**Document Purpose:** Mandatory Supporting Proof of Work & Solution Evidence (PDF Format < 10 MB)
+**Document Purpose:** Mandatory Supporting Proof of Work & Solution Evidence (PDF Format Smaller than 10 MB)
 
 ---
 

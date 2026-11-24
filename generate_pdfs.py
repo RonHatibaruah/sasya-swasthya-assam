@@ -34,7 +34,7 @@ class NumberedCanvas(canvas.Canvas):
         # Header (pages after page 1)
         if self._pageNumber > 1:
             self.drawString(54, letter[1] - 36, "Government of Assam • Dept. of Agriculture & ASSAC (Science & Tech) • NESFIC-D-11")
-            self.drawRightString(letter[0] - 54, letter[1] - 36, "SasyaSwasthya — Ron Hatibaruah")
+            self.drawRightString(letter[0] - 54, letter[1] - 36, "SasyaSwasthya — Rajib Dutta (Luitporiya Labs)")
             self.setStrokeColor(colors.HexColor("#cbd5e1"))
             self.setLineWidth(0.5)
             self.line(54, letter[1] - 42, letter[0] - 54, letter[1] - 42)
@@ -43,7 +43,7 @@ class NumberedCanvas(canvas.Canvas):
         self.setStrokeColor(colors.HexColor("#cbd5e1"))
         self.setLineWidth(0.5)
         self.line(54, 45, letter[0] - 54, 45)
-        self.drawString(54, 32, "NESFIC 2026 Proposal • Problem NESFIC-D-11 • Applicant: Ron Hatibaruah")
+        self.drawString(54, 32, "NESFIC 2026 Proposal • Problem NESFIC-D-11 • Lead Applicant: Rajib Dutta | Luitporiya Labs")
         self.drawRightString(letter[0] - 54, 32, f"Page {self._pageNumber} of {page_count}")
         self.restoreState()
 
@@ -252,7 +252,7 @@ def build_proposal_pdf(output_path, workspace_dir):
     
     meta_data = [
         [safe_paragraph("<b>Problem Statement ID:</b> NESFIC-D-11 (Govt Track)", meta_style), safe_paragraph("<b>Challenge Owner:</b> Dept of Agriculture & ASSAC", meta_style)],
-        [safe_paragraph("<b>Lead Applicant:</b> Ron Hatibaruah", meta_style), safe_paragraph("<b>Knowledge Partner:</b> AAU Jorhat", meta_style)],
+        [safe_paragraph("<b>Lead Applicant:</b> Rajib Dutta (Luitporiya Labs)", meta_style), safe_paragraph("<b>Knowledge Partner:</b> AAU Jorhat", meta_style)],
         [safe_paragraph("<b>Live Demo:</b> https://sasya-swasthya.pages.dev/", meta_style), safe_paragraph("<b>Status:</b> Working Prototype Verified", meta_style)]
     ]
     t_meta = Table(meta_data, colWidths=[240, 264])
@@ -388,7 +388,7 @@ def build_proof_of_work_pdf(output_path, workspace_dir):
     
     meta_data = [
         [safe_paragraph("<b>Challenge ID:</b> NESFIC-D-11 (Govt Track)", meta_style), safe_paragraph("<b>Department:</b> Agriculture & ASSAC, Assam", meta_style)],
-        [safe_paragraph("<b>Lead Applicant:</b> Ron Hatibaruah", meta_style), safe_paragraph("<b>Technology Readiness:</b> TRL 6 (Validated)", meta_style)],
+        [safe_paragraph("<b>Lead Applicant:</b> Rajib Dutta (Luitporiya Labs)", meta_style), safe_paragraph("<b>Technology Readiness:</b> TRL 6 (Validated)", meta_style)],
         [safe_paragraph("<b>Live Prototype:</b> https://sasya-swasthya.pages.dev/", meta_style), safe_paragraph("<b>Verification Status:</b> Fully Built & Verified", meta_style)]
     ]
     t_meta = Table(meta_data, colWidths=[240, 264])

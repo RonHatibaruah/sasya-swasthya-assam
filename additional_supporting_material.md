@@ -1,6 +1,7 @@
 # ADDITIONAL SUPPORTING MATERIAL & TECHNICAL FEASIBILITY STUDY
 **NESFIC-D-11: Crop Health Monitoring, Pest & Disease Forecasting and Location-Specific Advisory**  
-**Lead Applicant & Systems Architect:** Ron Hatibaruah  
+**Lead Applicant & Organization:** Rajib Dutta | Luitporiya Labs  
+**Lead Solutions Architect:** Ron Hatibaruah  
 **Challenge Owners:** Department of Agriculture, Government of Assam & Assam State Space Application Centre (ASSAC)  
 **Academic Partner:** Assam Agricultural University (AAU), Jorhat  
 **Live Production Platform:** https://sasya-swasthya.pages.dev  
