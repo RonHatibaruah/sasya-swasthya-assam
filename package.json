@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "generate:images": "node scripts/chrome_gemini_bot.js",
+    "generate:images": "node scripts/chrome_gemini_bot.cjs",
     "generate:pdfs": "python3 generate_pdfs.py"
   },
   "dependencies": {
