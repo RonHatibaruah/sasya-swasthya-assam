@@ -116,7 +116,7 @@ The user interface is designed using high-contrast, clean white government porta
 ### Hardware, Avionics & Drone Specifications
 - **Drone Airframes:** Custom hexacopter and hybrid fixed-wing VTOL configurations constructed with carbon fiber composite frames, rated IP54 for monsoon resilience.
 - **Multispectral Sensor Payloads:** 5-band multispectral camera (Coastal Blue 444nm, Green 560nm, Red 668nm, RedEdge 705nm, NIR 842nm) paired with an uncooled microbolometer Long-Wave Thermal IR sensor (8–14 µm) with integrated sunshine sensor for real-time radiometric calibration.
-- **Avionics & Navigation:** Dual-redundant flight controllers (Pixhawk 6X / ArduPilot) integrated with multiband RTK/PPK GNSS supporting Indian **NavIC** (IRNSS), GPS L1/L2, and GLONASS, achieving Smaller than or equal to  1.5\text{ cm} horizontal precision.
+- **Avionics & Navigation:** Dual-redundant flight controllers (Pixhawk 6X / ArduPilot) integrated with multiband RTK/PPK GNSS supporting Indian **NavIC** (IRNSS), GPS L1/L2, and GLONASS, achieving Smaller than or equal to 1.5 cm horizontal precision.
 - **Onboard Edge AI Processing:** NVIDIA Jetson Orin Nano (40 TOPS) running TensorRT-optimized INT8 pipelines for real-time dead-heart and defoliation hotspot segmentation during flight.
 
 ### Data Flow & Interoperability
@@ -139,13 +139,13 @@ The development of SasyaSwasthya follows an Agile-Iterative, Human-Centered Syst
    - *Key Outputs:* Automated radiometric correction pipeline; computation engine for NDVI, NDWI, SAVI, and canopy temperature; scalable PostGIS spatial parcel data layer.
 3. **AI Diagnostic Training & Edge Optimization (Months 4–5):**
    - *Key Activities:* Curating a verified dataset of 42,000 Assam crop disease images (Rice Blast, Stem Borer dead-hearts, Sheath Blight snake-skin lesions, Hispa scarring). Training MobileNetV3 convolutional networks and compiling to ONNX/TFLite INT8 format.
-   - *Key Outputs:* Quantized on-device AI model (Smaller than or equal to  4.2\text{ MB}) demonstrating Greater than or equal to  92\% validation accuracy; offline-sync SQLite service worker architecture.
+   - *Key Outputs:* Quantized on-device AI model (Smaller than or equal to 4.2 MB) demonstrating Greater than or equal to 92% validation accuracy; offline-sync SQLite service worker architecture.
 4. **Full-Stack Platform Engineering & Prototype Deployment (Months 5–6):**
    - *Key Activities:* Developing the responsive React/TypeScript WebGIS dashboard, offline PWA, automated multilingual advisory builder, and drone mission telemetry interface.
    - *Key Outputs:* Deployed end-to-end working prototype on Cloudflare Pages (`sasya-swasthya.pages.dev`); functional WhatsApp/SMS broadcast mock dispatcher; interactive pathogen rule builder.
 5. **Verification, Benchmarking & AAU Expert Validation (Months 7–8):**
    - *Key Activities:* Rigorous unit, integration, and load testing. Double-blind accuracy assessment comparing satellite-predicted pest hotspots against ground surveys conducted by AAU entomology teams. Drone RTK accuracy calibration against physical benchmarks.
-   - *Key Outputs:* Comprehensive Test and Verification Report; certified model precision matrix (NDVI RMSE Smaller than  0.04, GPS RTK precision Smaller than  1.5 cm); vulnerability assessment and penetration testing (VAPT) compliance clearance.
+   - *Key Outputs:* Comprehensive Test and Verification Report; certified model precision matrix (NDVI RMSE Smaller than 0.04, GPS RTK precision Smaller than 1.5 cm); vulnerability assessment and penetration testing (VAPT) compliance clearance.
 6. **Pilot Rollout & Handover (Month 9):**
    - *Key Activities:* Controlled deployment across 3 pilot blocks in Kamrup, Nagaon, and Jorhat covering 15,000 farmers and 25 extension circles. Training workshops for ADOs, Krishi Sakhis, and district administrative officers.
    - *Key Outputs:* Production-ready deployment; user manuals in Assamese and English; finalized operational handover to the Department of Agriculture and ASSAC.
@@ -264,7 +264,7 @@ The system strictly adheres to the Digital Personal Data Protection Act (DPDPA) 
 - **Double-Blind Epidemiological Validation:**
   Conducted across 500 monitored hectares in Kamrup Rural and Nagaon districts during kharif conditions. The Epidemiological Forecast Engine's 72-hour early warnings were benchmarked against daily manual scouting logs recorded by ADOs.
   * *Forecast True-Positive Rate:* 88.6% for Rice Blast initiation following humidity spikes (Greater than 88% RH for 16 consecutive hours).
-  * *False Alarm Rate:* Smaller than  7.4%, significantly preventing unwarranted chemical pesticide expenditure.
+  * *False Alarm Rate:* Smaller than 7.4%, significantly preventing unwarranted chemical pesticide expenditure.
   * *Scouting Efficiency Gain:* Field scouting turnaround decreased from 8 days to under 24 hours per flagged parcel cluster.
 
 ### System Load & Resilience Testing
@@ -295,7 +295,7 @@ A fully functional prototype is live and accessible for evaluation:
 
 ### DGCA Drone Operations & Aviation Safety
 - **Drone Rules 2021 & Digital Sky Integration:** All autonomous flight operations adhere to Directorate General of Civil Aviation (DGCA) regulations:
-  * Flights operate strictly within designated Green Zones at Smaller than or equal to  120\text{ meters} (400 ft) AGL.
+  * Flights operate strictly within designated Green Zones at Smaller than or equal to 120 meters (400 ft) AGL.
   * Hardware incorporates Type-Certified avionics, Return-to-Home (RTH) failsafes upon link loss or low battery (Smaller than 25%), and geo-caging around security installations.
   * 360-degree obstacle detection radar prevents collisions with rural vegetation and power infrastructure.
 

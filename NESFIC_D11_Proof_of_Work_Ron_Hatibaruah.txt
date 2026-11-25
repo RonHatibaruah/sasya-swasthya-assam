@@ -55,7 +55,7 @@ Static and dynamic flight trials verified against Survey of India geodetic contr
   • Horizontal RMS Precision: 0.82 cm (Required specification: $\le 1.50\text{ cm}$) — PASSED.
   • Vertical RMS Precision: 1.38 cm (Required specification: $\le 2.50\text{ cm}$) — PASSED.
   • Time to First RTK Fix (TTFF): 14.2 seconds via multi-constellation NavIC L5/S-band and GPS L1/L2.
-  • Cadastral Dag Boundary Overlap Margin of Error: < 0.05%, preventing boundary registration drift across Assam's fragmented cadastral landscape.
+  • Cadastral Dag Boundary Overlap Margin of Error: Smaller than 0.05%, preventing boundary registration drift across Assam's fragmented cadastral landscape.
 
 ---
 
@@ -65,17 +65,17 @@ Static and dynamic flight trials verified against Survey of India geodetic contr
 
 A 12-week double-blind field trial across 500 monitored hectares in Kamrup Rural (Azara/Rani blocks) and Nagaon (Raha block) proved the operational superiority of SasyaSwasthya over legacy extension:
 
-+------------------------------------+-----------------------------------+----------------------------------------+------------------------------------+
-| Operational Dimension              | Legacy Extension Baseline         | SasyaSwasthya Platform                 | Operational Benefit                |
-+------------------------------------+-----------------------------------+----------------------------------------+------------------------------------+
-| Anomaly Detection Window           | 6–10 Days Post-Visible Damage     | 72 Hours Pre-Symptomatic Warning       | Preempts irreversible canopy loss  |
-| Task Allocation to Field Officer   | 3–5 Days (Paper / Weekly Meeting) | < 60 Seconds (Automated PWA Push)      | Instantaneous officer dispatch     |
-| Field Scouting Turnaround          | 48–72 Hours (Unprioritized)       | < 4 Hours (GPS-Locked Roster)          | Targeted high-risk triage          |
-| Advisory Formulation & Translation | 2–4 Days (Manual Drafting)        | Instantaneous (Automated Multilingual) | Bigha-calibrated vernacular advice |
-| Farmer Delivery Latency            | 1–2 Weeks (Physical Gatherings)   | < 15 Minutes (SMS / WhatsApp / IVR)    | Direct delivery to 100% of farmers |
-| Total Turnaround Time to Treatment | 12 to 21 Days (Catastrophic)      | 18 to 28 Hours (Preventative)          | 90% Reduction in Response Time     |
-| Crop Yield Loss in Affected Blocks | 25% – 35% Destroyed               | < 8% Yield Loss (85–90% Saved)         | Protects ₹4,500–₹7,200 per Bigha   |
-+------------------------------------+-----------------------------------+----------------------------------------+------------------------------------+
++------------------------------------+-----------------------------------+------------------------------------------------+------------------------------------+
+| Operational Dimension              | Legacy Extension Baseline         | SasyaSwasthya Platform                         | Operational Benefit                |
++------------------------------------+-----------------------------------+------------------------------------------------+------------------------------------+
+| Anomaly Detection Window           | 6–10 Days Post-Visible Damage     | 72 Hours Pre-Symptomatic Warning               | Preempts irreversible canopy loss  |
+| Task Allocation to Field Officer   | 3–5 Days (Paper / Weekly Meeting) | Smaller than 60 Seconds (Automated PWA Push)   | Instantaneous officer dispatch     |
+| Field Scouting Turnaround          | 48–72 Hours (Unprioritized)       | Smaller than 4 Hours (GPS-Locked Roster)       | Targeted high-risk triage          |
+| Advisory Formulation & Translation | 2–4 Days (Manual Drafting)        | Instantaneous (Automated Multilingual)         | Bigha-calibrated vernacular advice |
+| Farmer Delivery Latency            | 1–2 Weeks (Physical Gatherings)   | Smaller than 15 Minutes (SMS / WhatsApp / IVR) | Direct delivery to 100% of farmers |
+| Total Turnaround Time to Treatment | 12 to 21 Days (Catastrophic)      | 18 to 28 Hours (Preventative)                  | 90% Reduction in Response Time     |
+| Crop Yield Loss in Affected Blocks | 25% – 35% Destroyed               | Smaller than 8% Yield Loss (85–90% Saved)      | Protects ₹4,500–₹7,200 per Bigha   |
++------------------------------------+-----------------------------------+------------------------------------------------+------------------------------------+
 
 ---
 
