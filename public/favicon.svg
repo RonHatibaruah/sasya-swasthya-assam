@@ -1,38 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- Background circular badge -->
-  <rect width="64" height="64" rx="16" fill="#064e3b"/>
-  
-  <!-- Subtle satellite orbital rings / radar sweeps -->
-  <circle cx="32" cy="32" r="26" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.4"/>
-  <circle cx="32" cy="32" r="20" stroke="#34d399" stroke-width="1.5" opacity="0.3"/>
-  
-  <!-- Satellite sensor beam wave -->
-  <path d="M12 18 C 22 14, 42 14, 52 18" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-  <path d="M16 23 C 24 20, 40 20, 48 23" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
-  
-  <!-- Satellite icon at top right -->
-  <rect x="44" y="10" width="7" height="4" rx="1" fill="#38bdf8" transform="rotate(-25 44 10)"/>
-  <line x1="42" y1="9" x2="38" y2="7" stroke="#93c5fd" stroke-width="1.2"/>
-  <line x1="51" y1="13" x2="55" y2="15" stroke="#93c5fd" stroke-width="1.2"/>
-  <circle cx="48" cy="13" r="1.5" fill="#ffffff"/>
+  <defs>
+    <!-- Background Gradient: Deep Forest Green to Radiant Emerald -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="50%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
 
-  <!-- Golden Paddy ear & Central vibrant green crop leaf -->
-  <!-- Left golden paddy grain -->
-  <path d="M22 36 C 20 30, 24 26, 26 24 C 27 28, 25 34, 22 36 Z" fill="#facc15"/>
-  <path d="M19 43 C 17 38, 21 34, 23 32 C 24 36, 22 41, 19 43 Z" fill="#eab308"/>
-  
-  <!-- Central main flourishing leaf -->
-  <path d="M32 50 C 32 50, 48 42, 46 26 C 36 24, 24 34, 24 44 C 24 48, 28 50, 32 50 Z" fill="#22c55e"/>
-  <!-- Leaf central vein / pulse line -->
-  <path d="M26 47 C 32 40, 38 33, 44 28" stroke="#dcfce7" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Inner leaf branch veins -->
-  <path d="M32 40 C 36 38, 40 37, 42 36" stroke="#bbf7d0" stroke-width="1" stroke-linecap="round"/>
-  <path d="M29 44 C 33 43, 36 43, 38 41" stroke="#bbf7d0" stroke-width="1" stroke-linecap="round"/>
+    <!-- Golden Paddy Grain Gradient -->
+    <linearGradient id="goldGrain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="35%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
 
-  <!-- Stem root anchor -->
-  <path d="M30 50 C 31 54, 32 56, 32 56" stroke="#15803d" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Main Leaf Vibrant Gradient -->
+    <linearGradient id="leafGrad" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#15803d"/>
+      <stop offset="50%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+
+    <!-- Satellite / Radar Cyan Pulse Gradient -->
+    <linearGradient id="cyanPulse" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <!-- Soft Inner Glow -->
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle App Badge with Beveled Border -->
+  <rect x="1" y="1" width="62" height="62" rx="16" fill="url(#bgGrad)"/>
+  <rect x="1" y="1" width="62" height="62" rx="16" fill="url(#glow)"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="15.5" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- Satellite / Radar Space Waves (Top Right) -->
+  <path d="M38 10 C46 12 52 18 54 26" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <path d="M43 14 C48 16 51 19 52 24" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Satellite Beacon Node -->
+  <circle cx="51" cy="13" r="3" fill="url(#cyanPulse)"/>
+  <circle cx="51" cy="13" r="1.5" fill="#ffffff"/>
+
+  <!-- Golden Sali Paddy Grains (Left Flank) -->
+  <!-- Bottom grain -->
+  <path d="M21 44 C17 41 18 36 21 34 C24 35 25 40 21 44 Z" fill="url(#goldGrain)"/>
+  <!-- Middle grain -->
+  <path d="M18 36 C14 33 16 28 19 26 C22 28 22 33 18 36 Z" fill="url(#goldGrain)"/>
+  <!-- Top grain -->
+  <path d="M22 28 C19 24 22 19 25 18 C27 21 26 26 22 28 Z" fill="url(#goldGrain)"/>
+  <!-- Paddy Stem -->
+  <path d="M20 46 C21 38 23 30 26 22" stroke="#eab308" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Central Flourishing Crop Leaf -->
+  <path d="M29 52 C29 52 47 45 46 25 C34 23 23 35 24 46 C24 49 26 52 29 52 Z" fill="url(#leafGrad)"/>
   
-  <!-- Sensor Pulse dot (AI / Health check ping) -->
-  <circle cx="46" cy="26" r="3" fill="#38bdf8"/>
-  <circle cx="46" cy="26" r="5" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+  <!-- Secondary Sprouting Leaf (Right) -->
+  <path d="M32 46 C37 43 42 37 43 31 C39 31 34 35 32 46 Z" fill="#86efac" opacity="0.85"/>
+
+  <!-- Central Leaf Energy Pulse Spine -->
+  <path d="M27 49 C33 42 39 34 44 28" stroke="#f0fdf4" stroke-width="1.8" stroke-linecap="round"/>
+  
+  <!-- Seedling Root Anchor -->
+  <path d="M28 51 C29 55 30 57 30 57" stroke="#166534" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- AI Digital Diagnostics Pulse Indicator -->
+  <circle cx="45" cy="27" r="2.5" fill="#38bdf8"/>
+  <circle cx="45" cy="27" r="4.5" stroke="#7dd3fc" stroke-width="1" stroke-dasharray="2 2" opacity="0.8"/>
 </svg>
