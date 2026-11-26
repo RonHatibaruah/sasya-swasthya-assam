@@ -8,11 +8,12 @@ import { DroneTechnologyPage } from './components/DroneTechnologyPage';
 import { AdminDashboard } from './components/AdminDashboard';
 import { RecordDetailModal } from './components/RecordDetailModal';
 import { TutorialModal } from './components/TutorialModal';
+import { TechnicalDocsModal } from './components/TechnicalDocsModal';
 import { DisclaimerModal } from './components/DisclaimerModal';
 import { initialCropRecords, initialScoutingTasks } from './data/mockAssamCropData';
 import { CropHealthRecord, FieldScoutingTask } from './types/cropHealth';
 import { AgroRuleEngineConfig, DEFAULT_AGRO_CONFIG } from './services/cropIntelligenceEngine';
-import { Sprout, ShieldAlert, MapPin, ExternalLink, CheckCircle } from 'lucide-react';
+import { Sprout, ShieldAlert, MapPin, ExternalLink, CheckCircle, HelpCircle, Cpu } from 'lucide-react';
 
 export function App() {
   const [records, setRecords] = useState<CropHealthRecord[]>(initialCropRecords);
@@ -22,6 +23,7 @@ export function App() {
   const [selectedDistrict, setSelectedDistrict] = useState<string>('ALL');
   const [inspectingRecord, setInspectingRecord] = useState<CropHealthRecord | null>(null);
   const [isTutorialOpen, setIsTutorialOpen] = useState<boolean>(false);
+  const [isTechnicalDocsOpen, setIsTechnicalDocsOpen] = useState<boolean>(false);
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState<boolean>(false);
 
   // Synchronize hash with activeTab for SEO, deep-linking and browser navigation
@@ -35,6 +37,7 @@ export function App() {
       else if (hash === 'drone-tech' || hash === 'drone-technology') setActiveTab('drone-tech');
       else if (hash === 'admin-console' || hash === 'admin') setActiveTab('admin');
       else if (hash === 'tutorial') setIsTutorialOpen(true);
+      else if (['technical', 'tech-stack', 'formulas', 'glossary'].includes(hash)) setIsTechnicalDocsOpen(true);
       else if (hash === 'disclaimer') setIsDisclaimerOpen(true);
     };
 
@@ -115,6 +118,14 @@ export function App() {
     }
   };
 
+  const getFallbackHash = () => {
+    return activeTab === 'gis-map' ? 'gis-viewer' : 
+           activeTab === 'field-verification' ? 'field-scouting' : 
+           activeTab === 'citizen-portal' ? 'farmer-advisory' : 
+           activeTab === 'drone-tech' ? 'drone-technology' : 
+           activeTab === 'admin' ? 'admin-console' : 'dashboard';
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
       {/* Navigation */}
@@ -126,6 +137,7 @@ export function App() {
         totalRecords={records.length}
         criticalCount={criticalCount}
         onOpenTutorial={() => setIsTutorialOpen(true)}
+        onOpenTechnicalDocs={() => setIsTechnicalDocsOpen(true)}
         onOpenDisclaimer={() => setIsDisclaimerOpen(true)}
       />
 
@@ -185,10 +197,27 @@ export function App() {
         onDispatchScouting={handleDispatchScouting}
       />
 
-      {/* System Guide & Challenge Architecture Modal */}
+      {/* System Tutorial & How-to-Use Walkthrough Modal */}
       <TutorialModal
         isOpen={isTutorialOpen}
-        onClose={() => setIsTutorialOpen(false)}
+        onClose={() => {
+          setIsTutorialOpen(false);
+          if (window.location.hash === '#tutorial') {
+            window.history.pushState(null, '', `#${getFallbackHash()}`);
+          }
+        }}
+        onNavigateTab={(tab) => handleTabSelect(tab)}
+      />
+
+      {/* Technical Architecture, Formulas for Laymen & Glossary Modal */}
+      <TechnicalDocsModal
+        isOpen={isTechnicalDocsOpen}
+        onClose={() => {
+          setIsTechnicalDocsOpen(false);
+          if (['#technical', '#tech-stack', '#formulas', '#glossary'].includes(window.location.hash)) {
+            window.history.pushState(null, '', `#${getFallbackHash()}`);
+          }
+        }}
       />
 
       {/* Agricultural & Legal Disclaimer Modal */}
@@ -197,12 +226,12 @@ export function App() {
         onClose={() => {
           setIsDisclaimerOpen(false);
           if (window.location.hash === '#disclaimer') {
-            window.history.pushState(null, '', `#${activeTab === 'gis-map' ? 'gis-viewer' : activeTab === 'field-verification' ? 'field-scouting' : activeTab === 'citizen-portal' ? 'farmer-advisory' : activeTab === 'drone-tech' ? 'drone-technology' : activeTab === 'admin' ? 'admin-console' : 'dashboard'}`);
+            window.history.pushState(null, '', `#${getFallbackHash()}`);
           }
         }}
       />
 
-      {/* Persistent Disclaimer Notice Banner */}
+      {/* Persistent Information & Disclaimer Notice Banner */}
       <aside
         id="disclaimer"
         aria-label="Platform Disclaimer and Notice"
@@ -222,14 +251,24 @@ export function App() {
               </p>
             </div>
           </div>
-          <button
-            onClick={() => setIsDisclaimerOpen(true)}
-            className="shrink-0 px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold transition-colors flex items-center gap-1.5 shadow-xs"
-            aria-label="Read complete disclaimer and legal notice"
-          >
-            <span>Full Disclaimer</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </button>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => setIsTechnicalDocsOpen(true)}
+              className="px-3.5 py-2 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-semibold transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+              title="Formulas & Technical Stack"
+            >
+              <Cpu className="w-3.5 h-3.5" />
+              <span>Tech &amp; Formulas</span>
+            </button>
+            <button
+              onClick={() => setIsDisclaimerOpen(true)}
+              className="px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+              aria-label="Read complete disclaimer and legal notice"
+            >
+              <span>Full Disclaimer</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
       </aside>
 
@@ -295,7 +334,7 @@ export function App() {
             </div>
           </div>
 
-          {/* Bottom Footer Row: Copyright, Nav Links & Disclaimer Trigger */}
+          {/* Bottom Footer Row: Copyright, Nav Links & Modal Triggers */}
           <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
             <div className="flex items-center space-x-2 flex-wrap text-center md:text-left">
               <span className="font-semibold text-slate-700">
@@ -305,7 +344,7 @@ export function App() {
               <span>NESFIC-D-11 Assam Precision Agriculture</span>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <a
                 href="#dashboard"
                 onClick={(e) => { e.preventDefault(); handleTabSelect('dashboard'); }}
@@ -345,6 +384,22 @@ export function App() {
               >
                 Sasya Seva
               </a>
+              <span>•</span>
+              <button
+                onClick={() => setIsTutorialOpen(true)}
+                className="text-emerald-800 hover:text-emerald-950 font-semibold underline underline-offset-2 transition-colors cursor-pointer"
+                title="Application Tutorial & How-to-Use Guide"
+              >
+                Tutorial
+              </button>
+              <span>•</span>
+              <button
+                onClick={() => setIsTechnicalDocsOpen(true)}
+                className="text-blue-800 hover:text-blue-950 font-semibold underline underline-offset-2 transition-colors cursor-pointer"
+                title="Technical Stack, Formulas for Laymen & Glossary"
+              >
+                Tech &amp; Formulas
+              </button>
               <span>•</span>
               <button
                 onClick={() => setIsDisclaimerOpen(true)}

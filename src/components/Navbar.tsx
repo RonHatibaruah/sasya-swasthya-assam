@@ -1,5 +1,17 @@
 import React from 'react';
-import { Sprout, Map, ClipboardCheck, Radio, Activity, BookOpen, Sliders, AlertTriangle, Plane, ShieldAlert } from 'lucide-react';
+import { 
+  Sprout, 
+  Map, 
+  ClipboardCheck, 
+  Radio, 
+  Activity, 
+  Sliders, 
+  AlertTriangle, 
+  Plane, 
+  ShieldAlert, 
+  HelpCircle, 
+  Cpu 
+} from 'lucide-react';
 
 export type ActiveTab = 'dashboard' | 'gis-map' | 'field-verification' | 'citizen-portal' | 'drone-tech' | 'admin';
 
@@ -11,6 +23,7 @@ interface NavbarProps {
   totalRecords: number;
   criticalCount: number;
   onOpenTutorial: () => void;
+  onOpenTechnicalDocs?: () => void;
   onOpenDisclaimer?: () => void;
 }
 
@@ -22,6 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   totalRecords,
   criticalCount,
   onOpenTutorial,
+  onOpenTechnicalDocs,
   onOpenDisclaimer
 }) => {
   return (
@@ -32,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span className="font-semibold text-slate-100">Government of Assam</span>
           <span className="text-slate-500">•</span>
-          <span>Dept. of Agriculture & ASSAC</span>
+          <span>Dept. of Agriculture &amp; ASSAC</span>
           <span className="text-slate-500">•</span>
           <span className="text-amber-400 font-semibold">NESFIC-D-11 Track</span>
           <span className="text-slate-500 hidden md:inline">•</span>
@@ -41,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </span>
         </div>
         <div className="flex items-center space-x-3 mt-1 sm:mt-0">
-          <span className="text-slate-400 hidden lg:inline">Sentinel-2 & Drone Space-to-Ground Telemetry</span>
+          <span className="text-slate-400 hidden lg:inline">Sentinel-2 &amp; Drone Space-to-Ground Telemetry</span>
           <span className="bg-emerald-950 text-emerald-300 border border-emerald-800 px-2 py-0.5 rounded text-[11px] font-mono">
             {totalRecords} Plots Monitored
           </span>
@@ -76,13 +90,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </a>
               </div>
               <p className="text-xs text-slate-600 font-medium">
-                Crop Health Monitoring, Pest Forecasting & Location-Specific Agro-Advisory Engine
+                Crop Health Monitoring, Pest Forecasting &amp; Location-Specific Agro-Advisory Engine
               </p>
             </div>
           </div>
 
           {/* Quick Filter & Actions */}
-          <div className="flex items-center space-x-2.5 flex-wrap gap-y-2">
+          <div className="flex items-center space-x-2 flex-wrap gap-y-2">
             <div className="flex items-center space-x-2 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 text-xs">
               <label htmlFor="district-select" className="text-slate-500 font-medium">District:</label>
               <select
@@ -105,21 +119,36 @@ export const Navbar: React.FC<NavbarProps> = ({
               </select>
             </div>
 
+            {/* Tutorial & How to Use Button */}
             <button
               onClick={onOpenTutorial}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-semibold transition-all shadow-xs"
-              title="Open NESFIC-D-11 System Architecture Guide"
-              aria-label="Open System Architecture Guide"
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-semibold transition-all shadow-xs cursor-pointer"
+              title="Tutorial: What is SasyaSwasthya and How to Use It"
+              aria-label="Open Application Tutorial and Guide"
             >
-              <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
-              <span>D-11 Guide</span>
+              <HelpCircle className="w-3.5 h-3.5 text-emerald-700" />
+              <span>Tutorial &amp; Guide</span>
             </button>
 
+            {/* Technical Stack, Formulas for Laymen & Glossary Button */}
+            {onOpenTechnicalDocs && (
+              <button
+                onClick={onOpenTechnicalDocs}
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-300 text-xs font-semibold transition-all shadow-xs cursor-pointer"
+                title="View Technical Stack, Formulas for Laymen & Glossary"
+                aria-label="Open Technical Architecture, Layman Formulas and Glossary"
+              >
+                <Cpu className="w-3.5 h-3.5 text-blue-700" />
+                <span>Tech &amp; Formulas</span>
+              </button>
+            )}
+
+            {/* Disclaimer Button */}
             {onOpenDisclaimer && (
               <button
                 onClick={onOpenDisclaimer}
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold transition-all shadow-xs"
-                title="View Agricultural & Legal Disclaimer"
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold transition-all shadow-xs cursor-pointer"
+                title="View Agricultural &amp; Legal Disclaimer"
                 aria-label="View Agricultural and Legal Disclaimer"
               >
                 <ShieldAlert className="w-3.5 h-3.5 text-amber-700" />
@@ -161,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Map className="w-4 h-4 text-emerald-600" />
-            <span>Satellite & Drone WebGIS</span>
+            <span>Satellite &amp; Drone WebGIS</span>
           </a>
 
           <a
@@ -176,7 +205,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <ClipboardCheck className="w-4 h-4 text-emerald-600" />
-            <span>Field Scouting & PWA</span>
+            <span>Field Scouting &amp; PWA</span>
           </a>
 
           <a
@@ -221,7 +250,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Sliders className="w-4 h-4 text-amber-600" />
-            <span>Command & Admin Console</span>
+            <span>Command &amp; Admin Console</span>
           </a>
         </nav>
       </div>

@@ -71,8 +71,16 @@
   <!-- Interactive Walkthrough & Training Guide -->
   <url>
     <loc>https://sasya-swasthya.pages.dev/#tutorial</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Technical Stack, Layman Formulas & Glossary Guide -->
+  <url>
+    <loc>https://sasya-swasthya.pages.dev/#technical</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
